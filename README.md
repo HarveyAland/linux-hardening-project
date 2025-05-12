@@ -93,7 +93,7 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 - Updated firewall rules to match SSH port change and enhance security
 
 ## Final Lynis Hardening Result
-B
+
 
 #### Lynis Before Hardening
 ![Lynis before hardening](screenshots/lynis-before.png)
