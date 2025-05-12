@@ -1,0 +1,5 @@
+cat <<EOF > .gitignore
+*.swp
+*.log
+*.bak
+EOF

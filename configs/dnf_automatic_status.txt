@@ -1,0 +1,8 @@
+● dnf-automatic.timer - dnf-automatic timer
+     Loaded: loaded (/usr/lib/systemd/system/dnf-automatic.timer; enabled; preset: disabled)
+     Active: active (waiting) since Fri 2025-05-09 22:46:06 BST; 28s ago
+      Until: Fri 2025-05-09 22:46:06 BST; 28s ago
+    Trigger: Sat 2025-05-10 06:51:44 BST; 8h left
+   Triggers: ● dnf-automatic.service
+
+May 09 22:46:06 HarveysFirstLinuxVM systemd[1]: Started dnf-automatic timer.

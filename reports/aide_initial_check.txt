@@ -1,0 +1,22 @@
+Start timestamp: 2025-05-09 22:32:13 +0100 (AIDE 0.16)
+AIDE found NO differences between database and filesystem. Looks okay!!
+
+Number of entries:	83152
+
+---------------------------------------------------
+The attributes of the (uncompressed) database(s):
+---------------------------------------------------
+
+/var/lib/aide/aide.db.gz
+  MD5      : rXZuBJi7w3MoTuDmhttsog==
+  SHA1     : fePc+pEguczRElYlgidHX/Y+utU=
+  RMD160   : wmNcpyUDY5eS/7TJCP88hZpixcs=
+  TIGER    : BqEWhDRcCUFMSQgJgP205AvNolzJ+Bdm
+  SHA256   : fEVvBSqei7aBfpfhkgnod4F9viARBpio
+             xssrE0b+Okw=
+  SHA512   : xCAm7SKtygpZCN8XGTajHUc3i/hHX2TI
+             s+qzxOOZRNEhx0rfUhNnChIDx4tZIVze
+             Tn6Zu1kWLyjSg21Uogj9HQ==
+
+
+End timestamp: 2025-05-09 22:33:09 +0100 (run time: 0m 56s)
