@@ -23,8 +23,11 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 - Disabled `X11Forwarding` and `AllowAgentForwarding`
 - Configured `LogLevel VERBOSE`, `MaxAuthTries`, and `AllowTcpForwarding`
 - **Files:** `sshd_config_before.txt`, `sshd_config_after.txt`, `sshd_config_final.txt`
-  
+
+#### SSH Configuration Changes
 ![SSH config changes](screenshots/ssh-firewall-update.png)
+
+#### SSH Success After Port Change
 ![SSH success](screenshots/ssh-success.png)
 
 ### 🔒 PAM and Password Policy
@@ -32,6 +35,7 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 - Tuned `/etc/pam.d/system-auth` to add retry options and password aging
 - Locked down root access only after user `haland` was verified to have sudo rights
 
+#### Only haland Has Sudo Access
 ![Only haland has sudo access](screenshots/haland-sudo-only.png)
 
 ### 🛡 GRUB Bootloader Protection
@@ -40,8 +44,13 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 - Rebuilt GRUB config
 - Tested GRUB password prompt and verified password protection
 
-![GRUB root login](screenshots/grub-password-boot-protection.png)  
-![GRUB edit prompt](screenshots/grub-editor-prompted.png)  
+#### GRUB Root Login Protection
+![GRUB root login](screenshots/grub-password-boot-protection.png)
+
+#### GRUB Edit Prompt
+![GRUB edit prompt](screenshots/grub-editor-prompted.png)
+
+#### Root Entry on Boot
 ![Root entry on boot](screenshots/test-root-boot.png)
 
 ### 🧱 Service and Package Minimization
@@ -49,6 +58,7 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 - Stopped and disabled services like Avahi and Colord
 - Captured services before/after
 
+#### Services After Cleanup
 ![Services after cleanup](screenshots/services-cleaned.png)
 
 ### 🧾 Login Banners
@@ -60,7 +70,6 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 - Installed and configured `aide`, built baseline database, and saved result
 - **Files:** `rkhunter_scan.txt`, `aide_initial_check.txt`
 
-
 ### 🔍 File Permissions and Audits
 - Set sticky bit on `/tmp` and `/var/tmp`
 - Audited and saved SUID/SGID results
@@ -68,6 +77,7 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 - Verified only one sudoer account exists
 - **Files:** `suid_sgid_audit.txt`, `users_before.txt`, `users_after.txt`
 
+#### Unused Account Removal
 ![Unused account removal](screenshots/unused-accounts-removed.png)
 
 ### 🚫 Disabled Kernel Protocols
@@ -84,7 +94,11 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 
 ## Final Lynis Hardening Result
 B
-![Lynis before hardening](screenshots/lynis-before.png)  
+
+#### Lynis Before Hardening
+![Lynis before hardening](screenshots/lynis-before.png)
+
+#### Lynis After Hardening
 ![Lynis after hardening](screenshots/lynis_after_hardening.png)
 - All key suggestions addressed or intentionally excluded due to scope
 **Score:** 66 ➝ 80 ✅
@@ -100,10 +114,11 @@ Some Lynis suggestions were skipped or flagged incorrectly:
 During hardening, a configuration error in PAM temporarily prevented login and sudo access. Recovery involved:
 - Booting into single-user mode
 - Manually editing `/etc/shadow` and `/etc/sudoers`
-- Creating a temporary `rescueuser` with root access  
+- Creating a temporary `rescueuser` with root access
 Once `haland` was restored and reverified with sudo privileges, the temporary user was safely removed.
 
 This experience demonstrates real-world troubleshooting and recovery skills in a locked-out Linux environment.
 
 ## Conclusion
-- All key suggestions addressed or intentionally excluded due to scopeThis project shows realistic Linux system hardening under practical constraints. The system achieved a secure configuration, reflected in the improved Lynis score and supported with clear documentation and screenshots. The final state demonstrates a responsible balance between strict hardening and usability on a non-production system.
+- All key suggestions addressed or intentionally excluded due to scope
+This project shows realistic Linux system hardening under practical constraints. The system achieved a secure configuration, reflected in the improved Lynis score and supported with clear documentation and screenshots. The final state demonstrates a responsible balance between strict hardening and usability on a non-production system.
