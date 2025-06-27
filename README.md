@@ -16,6 +16,28 @@ This project demonstrates the hardening of a CentOS 9 virtual machine following 
 
 ## Key Security Enhancements
 
+### 🔐 Auditd Syscall Monitoring – perm_mods Rule
+- Created syscall-based audit rule to monitor permission and ownership changes
+- Rule added to `/etc/audit/rules.d/hardening.rules`:
+  ```bash
+  -a always,exit -F arch=b64 -S chmod,chown,fchmod -k perm_mods
+  ```
+- Reloaded rules with:
+  ```bash
+  sudo augenrules --load
+  ```
+- Confirmed rule was active using:
+  ```bash
+  sudo auditctl -l
+  ```
+- Captured real event (`fchmod`) triggered by the `anacron` system process
+- Verified the log using:
+  ```bash
+  sudo ausearch -k perm_mods
+  ```
+
+📸 Screenshots showing rule creation, activation, and the audit log entry are available in the [`screenshots/`](./screenshots/) folder.
+
 ### 🔐 SSH Configuration Hardening
 - Changed SSH port
 - Set `PermitRootLogin no`
